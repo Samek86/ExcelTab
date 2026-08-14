@@ -1,0 +1,77 @@
+﻿<Window x:Class="ExcelTab.VIEW.FavoriteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExcelTab.VIEW"
+        mc:Ignorable="d"
+        Title="FavoriteWindow" Height="1080" Width="1920"
+        WindowStartupLocation="CenterScreen" WindowState="Normal" AllowsTransparency="True"
+        WindowStyle="None" Background="#AA000000" 
+        Loaded="Window_Loaded" MouseUp="Window_MouseUp" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="GrayBorder" TargetType="Border">
+                <Setter Property="Width" Value="250"/>
+                <Setter Property="Height" Value="250"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="250"/>
+                <!--<Setter Property="Opacity" Value="0.7"/>-->
+            </Style>
+            <Style x:Key="GrayText" TargetType="TextBlock">
+                <Setter Property="Opacity" Value="0.3"/>
+                <Setter Property="FontFamily" Value="Meiryo"/>
+                <Setter Property="FontSize" Value="250"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="7" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="8" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="9" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="4" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="5" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="6" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="1" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="2" Style="{StaticResource GrayText}"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource GrayBorder}">
+            <TextBlock Text="3" Style="{StaticResource GrayText}"/>
+        </Border>
+        <local:FavoriteItemControl x:Name="Ctrl7" Grid.Row="0" Grid.Column="0" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl8" Grid.Row="0" Grid.Column="1" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl9" Grid.Row="0" Grid.Column="2" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl4" Grid.Row="1" Grid.Column="0" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl5" Grid.Row="1" Grid.Column="1" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl6" Grid.Row="1" Grid.Column="2" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl1" Grid.Row="2" Grid.Column="0" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl2" Grid.Row="2" Grid.Column="1" Visibility="Collapsed"/>
+        <local:FavoriteItemControl x:Name="Ctrl3" Grid.Row="2" Grid.Column="2" Visibility="Collapsed"/>
+    </Grid>
+</Window>

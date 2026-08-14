@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ExcelTab">
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Meiryo"></Setter>
+        <!--<Setter Property="FontWeight" Value="Bold"></Setter>-->
+        <Setter Property="Foreground" Value="White"></Setter>
+    </Style>
+
+    <Style x:Key="BlackLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="Meiryo"></Setter>
+        <!--<Setter Property="FontWeight" Value="Bold"></Setter>-->
+        <Setter Property="Foreground" Value="#333"></Setter>
+    </Style>
+</ResourceDictionary>

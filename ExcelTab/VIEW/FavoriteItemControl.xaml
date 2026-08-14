@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="ExcelTab.VIEW.FavoriteItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExcelTab.VIEW"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Margin="20">
+    <Border BorderThickness="3">
+        <Border.Style>
+            <Style>
+                <Setter Property="Border.BorderBrush" Value="White"/>
+                <Setter Property="Border.Background" Value="#333"/>
+                <Style.Triggers>
+                    <Trigger Property="Border.IsMouseOver" Value="True">
+                        <Setter Property="Border.BorderBrush" Value="{StaticResource MainColor}" />
+                        <Setter Property="Border.Background" Value="{StaticResource SecondColor}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+        <Grid Background="#01000000">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid MouseUp="Grid_MouseUp" Cursor="Hand">
+                <Image x:Name="PreviewImg" MaxHeight="500" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <Border Background="{StaticResource MainColor}" BorderBrush="White" BorderThickness="7"
+                        Width="90" Height="90" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                        Margin="20" CornerRadius="100">
+                    <TextBlock x:Name="IndexTb" Text="2" FontSize="50" FontWeight="Bold" Foreground="White"
+                               VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,0,3"/>
+                </Border>
+            </Grid>
+            <Border Grid.Row="1" Background="{StaticResource BackgroundColor}" Margin="0,0,0,-1">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <RadioButton x:Name="CellRb" Content="セル" Style="{StaticResource RadioButtonStyle}" FontWeight="Bold" Checked="CellRb_Checked"/>
+                        <RadioButton x:Name="SheetRb" Content="シート" Style="{StaticResource RadioButtonStyle}" FontWeight="Bold" Checked="SheetRb_Checked"/>
+                    </StackPanel>
+                    <Button Content="削除" Style="{StaticResource GrayBt}" Width="100" 
+                            HorizontalAlignment="Right" Click="DeleteBt_Click"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Background="{StaticResource BackgroundColor}" MouseUp="Grid_MouseUp">
+                <Grid Margin="10,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="70"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="FileNameTb" Foreground="White" VerticalAlignment="Center"
+                               FontSize="12" Margin="0" Text="ファイル名" MaxWidth="370"
+                               FontWeight="Bold" TextWrapping="NoWrap"/>
+                    <TextBlock Grid.Column="1" Text="/" Foreground="White" VerticalAlignment="Center"
+                               FontSize="12" HorizontalAlignment="Center"
+                               FontWeight="Bold"/>
+                    <TextBlock Grid.Column="2" x:Name="SheetNameTb" Foreground="White" VerticalAlignment="Center"
+                               FontSize="12" Margin="0" Text="シート名" MaxWidth="200"
+                               FontWeight="Bold"/>
+                    <TextBlock Grid.Column="3" Text="/" Foreground="White" VerticalAlignment="Center"
+                               FontSize="12" HorizontalAlignment="Center"
+                               FontWeight="Bold"/>
+                    <TextBlock Grid.Column="4" x:Name="CellTb" Foreground="White" VerticalAlignment="Center"
+                               FontSize="12" Margin="0" Text="セル"
+                               FontWeight="Bold"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

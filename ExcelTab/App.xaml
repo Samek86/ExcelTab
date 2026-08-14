@@ -1,0 +1,27 @@
+﻿<Application x:Class="ExcelTab.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ExcelTab"
+             Startup="Application_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/STYLE/CommonStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/ContextMenuStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/ScrollStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/RadioStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/TextboxStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/TextblockStyle.xaml"/>
+                <!--
+                <ResourceDictionary Source="/STYLE/TabStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/LabelStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/ComboboxStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/MenuStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/ProgressBarStyle.xaml"/>
+                <ResourceDictionary Source="/STYLE/STabItemStyle.xaml"/>
+                -->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ExcelTab">
+
+    <SolidColorBrush x:Key="FontColor" Color="White" />
+    <SolidColorBrush x:Key="ReverseFontColor" Color="#FF1E1E1E" />
+    <!--<SolidColorBrush x:Key="FontColor" Color="#FF1E1E1E" />
+    <SolidColorBrush x:Key="ReverseFontColor" Color="White" />-->
+    <SolidColorBrush x:Key="GrayColor" Color="#c7c7c7" />
+    <SolidColorBrush x:Key="DarkGrayColor" Color="#3e3e42" />
+    <SolidColorBrush x:Key="BackgroundColor" Color="#2d2d30" />
+    <SolidColorBrush x:Key="TransBackgroundColor" Color="#BB2d2d30" />
+    <SolidColorBrush x:Key="DarkBackgroundColor" Color="#1f1f1f" />
+    <SolidColorBrush x:Key="SemiactiveBackgroundBrushKey" Color="#707070" />
+    <SolidColorBrush x:Key="ReverseBackgroundColor" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="TitleBarColor" Color="#FF696969" />
+    <SolidColorBrush x:Key="StepBackgroundColor" Color="#FFCBCBCB" />
+    <SolidColorBrush x:Key="StepBackgroundColor2" Color="#EECBCBCB" />
+    <SolidColorBrush x:Key="ErrorColor" Color="#FFD44B35" />
+
+    <SolidColorBrush x:Key="MainColor" Color="#1f7244" />
+    <SolidColorBrush x:Key="MainDarkColor" Color="#175533" />
+    <SolidColorBrush x:Key="SecondColor" Color="#2ea965" />
+    <SolidColorBrush x:Key="BlueColor" Color="#55aaff" />
+    <SolidColorBrush x:Key="GreenColor" Color="#8ae28a" />
+</ResourceDictionary>

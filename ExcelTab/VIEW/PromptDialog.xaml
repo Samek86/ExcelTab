@@ -1,0 +1,22 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        x:Class="ExcelTab.VIEW.PromptDialog"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="Height"
+        Width="300"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize" Background="{StaticResource BackgroundColor}">
+    <StackPanel Margin="5">
+        <TextBlock Name="txtQuestion" Margin="5" TextWrapping="Wrap" Foreground="White" />
+        <TextBox Name="txtResponse" Margin="5" Visibility="Visible" />
+        <PasswordBox Name="txtPasswordResponse" Visibility="Collapsed" />
+        <DatePicker Name="dtpDateResponse" Visibility="Collapsed" />
+        <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
+            <Button Content="OK" IsDefault="True" Margin="5" Padding="5" Click="btnOk_Click" 
+                    Width="80" Style="{StaticResource GrayBt}"/>
+            <Button Content="Cancel" IsCancel="True" Margin="5" Padding="5" Click="btnCancel_Click"
+                    Width="80" Style="{StaticResource GrayBt}"
+                    />
+        </StackPanel>
+    </StackPanel>
+</Window>
