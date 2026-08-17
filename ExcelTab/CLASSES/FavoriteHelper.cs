@@ -118,47 +118,53 @@ namespace ExcelTab.CLASSES
                     return;
                 }
 
-                Excel.Application excelApp = ExcelAppHelper.EnsureAlive(MainWindow.oExcelApp);
-                MainWindow.oExcelApp = excelApp;
-                Excel.Workbook book;
-                if (excelApp == null)
+                Excel.Application excelApp = ExcelAppHelper.GetActiveApplication();
+                try
                 {
-                    Process.Start(fc.FullName);
-                    excelApp = WaitForExcelApp();
+                    Excel.Workbook book;
                     if (excelApp == null)
                     {
-                        Common.Wink(WinkEnum.Fail);
-                        Alert.Error("Excel を起動できませんでした。");
-                        return;
+                        Process.Start(fc.FullName);
+                        excelApp = WaitForExcelApp();
+                        if (excelApp == null)
+                        {
+                            Common.Wink(WinkEnum.Fail);
+                            Alert.Error("Excel を起動できませんでした。");
+                            return;
+                        }
+                        book = excelApp.ActiveWorkbook;
                     }
-                    book = excelApp.ActiveWorkbook;
-                }
-                else
-                {
-                    book = excelApp.Workbooks.Open(fc.FullName);
-                }
-
-                var windows = book.Windows;
-                for (int i = 1; i <= windows.Count; i++)
-                {
-                    Excel.Window window = windows[i];
-                    IntPtr handler = (IntPtr)window.Hwnd;
-                    if (window.WindowState == Enums.XlWindowState.xlMinimized)
+                    else
                     {
-                        window.WindowState = Enums.XlWindowState.xlNormal;
+                        book = excelApp.Workbooks.Open(fc.FullName);
                     }
-                    window.Activate();
-                    Win32Helper.SetForegroundWindow(handler);
-                }
 
-                if (excelApp.Workbooks.Count > 0)
+                    var windows = book.Windows;
+                    for (int i = 1; i <= windows.Count; i++)
+                    {
+                        Excel.Window window = windows[i];
+                        IntPtr handler = (IntPtr)window.Hwnd;
+                        if (window.WindowState == Enums.XlWindowState.xlMinimized)
+                        {
+                            window.WindowState = Enums.XlWindowState.xlNormal;
+                        }
+                        window.Activate();
+                        Win32Helper.SetForegroundWindow(handler);
+                    }
+
+                    if (excelApp.Workbooks.Count > 0)
+                    {
+                        excelApp.Visible = true;
+                    }
+
+                    Thread.Sleep(1000);
+                    MoveFavoriteCell(key, false);
+                }
+                finally
                 {
-                    excelApp.Visible = true;
+                    ExcelAppHelper.Release(ref excelApp);
+                    MainWindow.ReleaseExcelApp();
                 }
-
-                MainWindow.oExcelApp = ExcelAppHelper.GetActiveApplication();
-                Thread.Sleep(1000);
-                MoveFavoriteCell(key, false);
             }
             catch (Exception ex)
             {

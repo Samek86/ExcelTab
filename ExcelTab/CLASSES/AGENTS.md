@@ -36,6 +36,7 @@ Excel 連携・入力フック・Win32・設定・画面・更新など、UI 以
 - Excel は **NetOfficeFw.Excel 1.9.10**（`NetOffice.ExcelApi`）。Interop COM 参照は使わない。
 - 不要な Application / Workbook は `Dispose()`（`ComHelper.ReleaseCom` が IDisposable を Dispose）。
 - 実行中の Excel は `Excel.Application.GetActiveInstance(false)`（`ExcelAppHelper`）。ユーザーの Excel を落とす `Quit` は呼ばない。
+- `Application` を長時間保持しない。ブックが 0 件になったら `MainWindow.ReleaseExcelApp()` する（保持したままだと Excel が終了できない）。
 - Excel 終了後に破棄済み RCW を触らない（`IsDisposed` / try-catch）。
 - **キーボードフック** (`KeyboardHook` / `KeyHookManager`):
   - アプリ終了時に必ず `Close` / フック解除

@@ -340,10 +340,7 @@ namespace ExcelTab.VIEW
                         book.Close();
                         book.Dispose();
                     }
-                    if (MainWindow.oExcelApp != null && !MainWindow.oExcelApp.IsDisposed && MainWindow.oExcelApp.Workbooks.Count == 0)
-                    {
-                        MainWindow.oExcelApp.Visible = false;
-                    }
+                    MainWindow.ReleaseExcelApp();
                 });
             }
             catch (Exception)

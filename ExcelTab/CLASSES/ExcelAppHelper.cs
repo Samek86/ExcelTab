@@ -29,16 +29,30 @@ namespace ExcelTab.CLASSES
                 }
                 catch (Exception)
                 {
-                    try
-                    {
-                        app.Dispose();
-                    }
-                    catch (Exception)
-                    {
-                    }
+                    Release(ref app);
                 }
             }
             return GetActiveApplication();
+        }
+
+        public static void Release(ref Excel.Application app)
+        {
+            if (app == null)
+            {
+                return;
+            }
+            try
+            {
+                if (!app.IsDisposed)
+                {
+                    app.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                AppLog.Warn("Excel Application の解放に失敗しました。", ex);
+            }
+            app = null;
         }
     }
 }

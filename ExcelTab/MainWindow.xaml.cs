@@ -51,7 +51,6 @@ namespace ExcelTab
             Width = 0;
 
             MoveBottom();
-            GetExcelApp();
             SetTabSp();
 
             try
@@ -95,6 +94,11 @@ namespace ExcelTab
                 ExcelCount = 0;
             }
             return oExcelApp;
+        }
+
+        public static void ReleaseExcelApp()
+        {
+            ExcelAppHelper.Release(ref oExcelApp);
         }
 
         public void MoveBottom()
@@ -260,6 +264,16 @@ namespace ExcelTab
             {
                 ExcelCount = TabList.Count;
                 int openedCount = ROTManager.GetOpenedLocalWorkbookCount();
+                if (openedCount == 0)
+                {
+                    if (ExcelCount != 0)
+                    {
+                        SetTabSp();
+                    }
+                    ReleaseExcelApp();
+                    Common.IsExcelActive = false;
+                    return;
+                }
                 if (openedCount != ExcelCount)
                 {
                     SetTabSp();
@@ -285,6 +299,7 @@ namespace ExcelTab
             {
                 AppLog.Warn("ブック監視に失敗しました。", ex);
                 ClearTabs();
+                ReleaseExcelApp();
             }
         }
 
@@ -296,7 +311,6 @@ namespace ExcelTab
             }
             try
             {
-                GetExcelApp();
                 Topmost = false;
                 if (TopmostFlg)
                 {
@@ -307,7 +321,8 @@ namespace ExcelTab
             catch (Exception ex)
             {
                 AppLog.Warn("レイアウト監視に失敗しました。", ex);
-                oExcelApp = null;
+                ClearTabs();
+                ReleaseExcelApp();
             }
         }
 
@@ -382,11 +397,7 @@ namespace ExcelTab
             {
             }
             ClearTabs();
-            if (oExcelApp != null)
-            {
-                ComHelper.ReleaseCom(oExcelApp);
-                oExcelApp = null;
-            }
+            ReleaseExcelApp();
             try
             {
                 App.Setting.Save();
