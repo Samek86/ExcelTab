@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("ExcelTab")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("J.Handa")]
+[assembly: AssemblyCompany("ExcelTab")]
 [assembly: AssemblyProduct("ExcelTab")]
-[assembly: AssemblyCopyright("Copyright © J.Handa. 2022")]
+[assembly: AssemblyCopyright("Copyright © ExcelTab contributors 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
