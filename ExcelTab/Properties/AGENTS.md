@@ -11,7 +11,7 @@
 
 | File | Description |
 |------|-------------|
-| `AssemblyInfo.cs` | アセンブリ名、バージョン、著作権等（例: 1.3.2.0, J.Handa） |
+| `AssemblyInfo.cs` | アセンブリ名、バージョン、著作権等（例: 1.3.2.0, Company は ExcelTab） |
 | `app.manifest` | 実行マニフェスト（UAC / 互換性）。csproj の `ApplicationManifest` から参照 |
 | `Resources.resx` / `Resources.Designer.cs` | 埋め込みリソース（Designer は自動生成） |
 | `Settings.settings` / `Settings.Designer.cs` | アプリケーション設定スケルトン（Designer は自動生成） |
